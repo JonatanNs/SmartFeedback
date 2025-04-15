@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Docker
+*.env
+docker-compose.yml
+*.db
+*.sqlite
+.docker/
+
+# Fichiers logs Docker
+docker-logs/

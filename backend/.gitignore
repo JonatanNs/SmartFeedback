@@ -1,0 +1,46 @@
+# Ignore Maven target directories
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Ignore Spring Tool Suite (STS) specific files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA project files
+.idea
+*.iws
+*.iml
+*.ipr
+
+# NetBeans project files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code settings
+.vscode/
+
+# Docker files (ignore environment files, docker logs, and generated artifacts)
+*.env
+docker-compose.yml
+*.db
+*.sqlite
+.docker/
+
+# Docker logs (if generated, you can keep them out of git)
+docker-logs/
+
+# Ignore application properties if sensitive
+/src/main/resources/application.properties

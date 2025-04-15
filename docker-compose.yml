@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend            # Chemin vers le Dockerfile du backend
+    ports:
+      - "8080:8080"              # Mappe le port 8080 du conteneur au port 8080 de l'hôte
+    networks:
+      - app-network              # Utilisation d'un réseau interne
+    depends_on:
+      - db                       # Le backend dépend de la base de données
+
+  frontend:
+    build: ./frontend           # Chemin vers le Dockerfile du frontend
+    ports:
+      - "80:80"                  # Mappe le port 80 du conteneur au port 80 de l'hôte
+    networks:
+      - app-network              # Utilisation du même réseau
+
+  db:
+    image: postgres:latest      # Utilisation de l'image officielle PostgreSQL
+    environment:
+      POSTGRES_USER: user       # Définir l'utilisateur PostgreSQL
+      POSTGRES_PASSWORD: password  # Définir le mot de passe PostgreSQL
+      POSTGRES_DB: smartfeedback  # Définir le nom de la base de données
+    ports:
+      - "5432:5432"             # Mappe le port 5432 du conteneur au port 5432 de l'hôte
+    networks:
+      - app-network             # Utilisation du même réseau
+
+networks:
+  app-network:                  # Création d'un réseau commun pour tous les services
+    driver: bridge

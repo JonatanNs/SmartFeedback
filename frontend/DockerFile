@@ -1,0 +1,20 @@
+# Utiliser une image de base contenant Node.js
+FROM node:16
+
+# Définir le répertoire de travail à l'intérieur du conteneur
+WORKDIR /app
+
+# Copier tous les fichiers du frontend dans le répertoire de travail du conteneur
+COPY . /app
+
+# Installer les dépendances de l'application Angular
+RUN npm install
+
+# Construire l'application Angular en mode production
+RUN npm run build --prod
+
+# Exposer le port 80 pour que l'application soit accessible
+EXPOSE 80
+
+# Démarrer un serveur HTTP pour servir les fichiers de l'application Angular
+CMD ["npx", "http-server", "dist"]

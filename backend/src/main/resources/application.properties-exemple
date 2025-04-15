@@ -1,0 +1,14 @@
+spring.application.name=SmartFeedback
+
+spring.datasource.url=jdbc:postgresql://localhost:****/name_db
+spring.datasource.username=
+spring.datasource.password=
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# Configurer un mot de passe personnalisé
+spring.security.user.name=
+spring.security.user.password=
+
